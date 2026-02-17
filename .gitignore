@@ -1,9 +1,16 @@
-reports/pcap/*.pcap
+# Logs
 *.log
-.env
-__pycache__/
-node_modules/
-.DS_Store
-*.tmp
+
+# PCAP files
+reports/pcap/*.pcap
+
+# Runtime artifacts
+reports/*_logs/*.txt
+
+# Editor files
 .vscode/
+.DS_Store
 *.swp
+
+# Python
+__pycache__/
