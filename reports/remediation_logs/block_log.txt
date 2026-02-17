@@ -2,3 +2,4 @@ Mon Feb 16 19:31:36 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim
 Mon Feb 16 19:32:41 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim-dvwa
 Mon Feb 16 19:34:13 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim-dvwa
 Mon Feb 16 19:44:03 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim-dvwa
+Tue Feb 17 08:03:36 UTC 2026 | ACTION: Blocked IP attacker-kali | CONTAINER: victim-dvwa

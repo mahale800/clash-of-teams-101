@@ -141,3 +141,87 @@ resource (/root/basic_scan.rc)> run
 resource (/root/basic_scan.rc)> exit
 ========================================
 Metasploit completed at Mon Feb 16 19:43:25 UTC 2026
+Metasploit tip: Network adapter names can be used for IP options set LHOST 
+eth0
+                                              `:oDFo:`                            
+                                           ./ymM0dayMmy/.                          
+                                        -+dHJ5aGFyZGVyIQ==+-                    
+                                    `:sm⏣~~Destroy.No.Data~~s:`                
+                                 -+h2~~Maintain.No.Persistence~~h+-              
+                             `:odNo2~~Above.All.Else.Do.No.Harm~~Ndo:`          
+                          ./etc/shadow.0days-Data'%20OR%201=1--.No.0MN8'/.      
+                       -++SecKCoin++e.AMd`       `.-://///+hbove.913.ElsMNh+-    
+                      -~/.ssh/id_rsa.Des-                  `htN01UserWroteMe!-  
+                      :dopeAW.No<nano>o                     :is:TЯiKC.sudo-.A:  
+                      :we're.all.alike'`                     The.PFYroy.No.D7:  
+                      :PLACEDRINKHERE!:                      yxp_cmdshell.Ab0:    
+                      :msf>exploit -j.                       :Ns.BOB&ALICEes7:    
+                      :---srwxrwx:-.`                        `MS146.52.No.Per:    
+                      :<script>.Ac816/                        sENbove3101.404:    
+                      :NT_AUTHORITY.Do                        `T:/shSYSTEM-.N:    
+                      :09.14.2011.raid                       /STFU|wall.No.Pr:    
+                      :hevnsntSurb025N.                      dNVRGOING2GIVUUP:    
+                      :#OUTHOUSE-  -s:                       /corykennedyData:    
+                      :$nmap -oS                              SSo.6178306Ence:    
+                      :Awsm.da:                            /shMTl#beats3o.No.:    
+                      :Ring0:                             `dDestRoyREXKC3ta/M:    
+                      :23d:                               sSETEC.ASTRONOMYist:    
+                       /-                        /yo-    .ence.N:(){ :|: & };:    
+                                                 `:Shall.We.Play.A.Game?tron/    
+                                                 ```-ooy.if1ghtf0r+ehUser5`    
+                                               ..th3.H1V3.U2VjRFNN.jMh+.`          
+                                              `MjM~~WE.ARE.se~~MMjMs              
+                                               +~KANSAS.CITY's~-`                  
+                                                J~HAKCERS~./.`                    
+                                                .esc:wq!:`                        
+                                                 +++ATH`                            
+                                                  `
+
+
+       =[ metasploit v6.4.112-dev                               ]
++ -- --=[ 2,607 exploits - 1,325 auxiliary - 1,707 payloads     ]
++ -- --=[ 429 post - 49 encoders - 14 nops - 9 evasion          ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+The Metasploit Framework is a Rapid7 Open Source Project
+
+[*] Processing /root/basic_scan.rc for ERB directives.
+resource (/root/basic_scan.rc)> workspace -a clash_of_teams
+[-] Database not connected
+resource (/root/basic_scan.rc)> db_status
+[*] postgresql selected, no connection
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/title
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> set THREADS 5
+THREADS => 5
+resource (/root/basic_scan.rc)> echo "Running HTTP Title Scanner against victim..."
+[*] exec: echo "Running HTTP Title Scanner against victim..."
+
+Running HTTP Title Scanner against victim...
+resource (/root/basic_scan.rc)> run
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/http_header
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> echo "Running HTTP Header Scanner..."
+[*] exec: echo "Running HTTP Header Scanner..."
+
+Running HTTP Header Scanner...
+resource (/root/basic_scan.rc)> run
+[+] 172.18.0.2:80        : CACHE-CONTROL: no-store, no-cache, must-revalidate
+[+] 172.18.0.2:80        : CONTENT-TYPE: text/html; charset=UTF-8
+[+] 172.18.0.2:80        : LOCATION: login.php
+[+] 172.18.0.2:80        : SERVER: Apache/2.4.25 (Debian)
+[+] 172.18.0.2:80        : SET-COOKIE: PHPSESSID=a2ktabu6mrp9ru0b5jsc8ouk93; path=/, PHPSESSID=a2ktabu6mrp9ru0b5jsc8ouk93; path=/, security=low
+[+] 172.18.0.2:80        : detected 5 headers
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> exit
+========================================
+Metasploit completed at Tue Feb 17 08:02:57 UTC 2026
