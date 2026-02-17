@@ -26,7 +26,7 @@ print_status "Starting Clash of Teams 101 Full Pipeline..."
 # 1. Start Environment
 print_status "Phase 1: Environment Setup"
 cd infrastructure
-docker-compose up -d
+docker compose up -d
 # Wait for containers to stabilize
 sleep 5
 cd ..
@@ -88,7 +88,7 @@ bash automation/remediation/block_attacker.sh
 # 8. Verify Block
 print_status "Phase 6: Verifying Block"
 print_status "Attempting remediation verification (Ping from Attacker)..."
-if docker exec "$ATTACKER_CONTAINER" ping -c 1 -W 1 172.18.0.2 > /dev/null 2>&1; then
+if docker exec "$ATTACKER_CONTAINER" ping -c 1 -W 1 victim-dvwa > /dev/null 2>&1; then
     print_error "Verification Failed! Attacker can still ping victim."
 else
     print_status "Verification Successful! Attacker cannot ping victim."

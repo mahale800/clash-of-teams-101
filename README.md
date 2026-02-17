@@ -61,7 +61,7 @@ Clone the repository and start the environment:
 
 ```bash
 cd infrastructure
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 2. Run the Full Simulation

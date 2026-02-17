@@ -2,7 +2,7 @@
 
 # Configuration
 ATTACKER_CONTAINER="attacker-kali"
-TARGET="victim"
+TARGET="victim-dvwa"
 # Navigate to script directory
 cd "$(dirname "$0")"
 

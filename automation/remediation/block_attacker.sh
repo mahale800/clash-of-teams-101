@@ -2,7 +2,7 @@
 
 # Configuration
 VICTIM_CONTAINER="victim-dvwa"
-ATTACKER_IP="172.18.0.3"
+ATTACKER_IP="attacker-kali"
 LOG_DIR="../../reports/remediation_logs"
 LOG_FILE="$LOG_DIR/block_log.txt"
 
