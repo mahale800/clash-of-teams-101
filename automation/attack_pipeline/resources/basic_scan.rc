@@ -1,0 +1,23 @@
+# Metasploit Resource Script
+# Usage: msfconsole -r basic_scan.rc
+
+# 1. Setup
+workspace -a clash_of_teams
+db_status
+
+# 2. Scanner Module: HTTP Title
+use auxiliary/scanner/http/title
+set RHOSTS victim
+set RPORT 80
+set THREADS 5
+echo "Running HTTP Title Scanner against victim..."
+run
+
+# 3. Scanner Module: HTTP Methods
+use auxiliary/scanner/http/http_header
+set RHOSTS victim
+set RPORT 80
+echo "Running HTTP Header Scanner..."
+run
+
+exit

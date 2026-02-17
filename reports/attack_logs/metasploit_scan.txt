@@ -1,0 +1,143 @@
+OCI runtime exec failed: exec failed: unable to start container process: exec: "msfconsole": executable file not found in $PATH
+========================================
+Metasploit completed at Mon Feb 16 19:15:06 UTC 2026
+========================================
+Metasploit completed at Mon Feb 16 19:21:31 UTC 2026
+Metasploit tip: View a module's description using info, or the enhanced 
+version in your browser with info -d
+ ______________________________________
+/ it looks like you're trying to run a \
+\ module                               /
+ --------------------------------------
+ \
+  \
+     __
+    /  \
+    |  |
+    @  @
+    |  |
+    || |/
+    || ||
+    |\_/|
+    \___/
+
+
+       =[ metasploit v6.4.112-dev                               ]
++ -- --=[ 2,607 exploits - 1,325 auxiliary - 1,710 payloads     ]
++ -- --=[ 429 post - 49 encoders - 14 nops - 9 evasion          ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+The Metasploit Framework is a Rapid7 Open Source Project
+
+[*] Processing /root/basic_scan.rc for ERB directives.
+resource (/root/basic_scan.rc)> workspace -a clash_of_teams
+[-] Database not connected
+resource (/root/basic_scan.rc)> db_status
+[*] postgresql selected, no connection
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/title
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> set THREADS 5
+THREADS => 5
+resource (/root/basic_scan.rc)> echo "Running HTTP Title Scanner against victim..."
+[*] exec: echo "Running HTTP Title Scanner against victim..."
+
+Running HTTP Title Scanner against victim...
+resource (/root/basic_scan.rc)> run
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/http_header
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> echo "Running HTTP Header Scanner..."
+[*] exec: echo "Running HTTP Header Scanner..."
+
+Running HTTP Header Scanner...
+resource (/root/basic_scan.rc)> run
+[+] 172.18.0.2:80        : CACHE-CONTROL: no-store, no-cache, must-revalidate
+[+] 172.18.0.2:80        : CONTENT-TYPE: text/html; charset=UTF-8
+[+] 172.18.0.2:80        : LOCATION: login.php
+[+] 172.18.0.2:80        : SERVER: Apache/2.4.25 (Debian)
+[+] 172.18.0.2:80        : SET-COOKIE: PHPSESSID=cerdkjm4bs15gjgcavcaiad7t4; path=/, PHPSESSID=cerdkjm4bs15gjgcavcaiad7t4; path=/, security=low
+[+] 172.18.0.2:80        : detected 5 headers
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> exit
+========================================
+Metasploit completed at Mon Feb 16 19:22:16 UTC 2026
+Metasploit tip: Search can apply complex filters such as search cve:2009 
+type:exploit, see all the filters with help search
+  +-------------------------------------------------------+
+  |  METASPLOIT by Rapid7                                 |
+  +---------------------------+---------------------------+
+  |      __________________   |                           |
+  |  ==c(______(o(______(_()  | |""""""""""""|======[***  |
+  |             )=\           | |  EXPLOIT   \            |
+  |            // \\          | |_____________\_______    |
+  |           //   \\         | |==[msf >]============\   |
+  |          //     \\        | |______________________\  |
+  |         // RECON \\       | \(@)(@)(@)(@)(@)(@)(@)/   |
+  |        //         \\      |  *********************    |
+  +---------------------------+---------------------------+
+  |      o O o                |        \'\/\/\/'/         |
+  |              o O          |         )======(          |
+  |                 o         |       .'  LOOT  '.        |
+  | |^^^^^^^^^^^^^^|l___      |      /    _||__   \       |
+  | |    PAYLOAD     |""\___, |     /    (_||_     \      |
+  | |________________|__|)__| |    |     __||_)     |     |
+  | |(@)(@)"""**|(@)(@)**|(@) |    "       ||       "     |
+  |  = = = = = = = = = = = =  |     '--------------'      |
+  +---------------------------+---------------------------+
+
+
+       =[ metasploit v6.4.112-dev                               ]
++ -- --=[ 2,607 exploits - 1,325 auxiliary - 1,707 payloads     ]
++ -- --=[ 429 post - 49 encoders - 14 nops - 9 evasion          ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+The Metasploit Framework is a Rapid7 Open Source Project
+
+[*] Processing /root/basic_scan.rc for ERB directives.
+resource (/root/basic_scan.rc)> workspace -a clash_of_teams
+[-] Database not connected
+resource (/root/basic_scan.rc)> db_status
+[*] postgresql selected, no connection
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/title
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> set THREADS 5
+THREADS => 5
+resource (/root/basic_scan.rc)> echo "Running HTTP Title Scanner against victim..."
+[*] exec: echo "Running HTTP Title Scanner against victim..."
+
+Running HTTP Title Scanner against victim...
+resource (/root/basic_scan.rc)> run
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> use auxiliary/scanner/http/http_header
+resource (/root/basic_scan.rc)> set RHOSTS victim
+RHOSTS => victim
+resource (/root/basic_scan.rc)> set RPORT 80
+RPORT => 80
+resource (/root/basic_scan.rc)> echo "Running HTTP Header Scanner..."
+[*] exec: echo "Running HTTP Header Scanner..."
+
+Running HTTP Header Scanner...
+resource (/root/basic_scan.rc)> run
+[+] 172.18.0.2:80        : CACHE-CONTROL: no-store, no-cache, must-revalidate
+[+] 172.18.0.2:80        : CONTENT-TYPE: text/html; charset=UTF-8
+[+] 172.18.0.2:80        : LOCATION: login.php
+[+] 172.18.0.2:80        : SERVER: Apache/2.4.25 (Debian)
+[+] 172.18.0.2:80        : SET-COOKIE: PHPSESSID=pcpq39sfia5voe4m149pjc71p2; path=/, PHPSESSID=pcpq39sfia5voe4m149pjc71p2; path=/, security=low
+[+] 172.18.0.2:80        : detected 5 headers
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (/root/basic_scan.rc)> exit
+========================================
+Metasploit completed at Mon Feb 16 19:43:25 UTC 2026

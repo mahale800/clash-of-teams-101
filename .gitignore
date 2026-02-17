@@ -1,0 +1,9 @@
+reports/pcap/*.pcap
+*.log
+.env
+__pycache__/
+node_modules/
+.DS_Store
+*.tmp
+.vscode/
+*.swp
