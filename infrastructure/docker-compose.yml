@@ -1,0 +1,36 @@
+networks:
+  clash_net:
+    driver: bridge
+
+services:
+  attacker:
+    image: kalilinux/kali-rolling
+    container_name: attacker-kali
+    hostname: attacker
+    tty: true
+    stdin_open: true
+    networks:
+      - clash_net
+    volumes:
+      - ../attacks:/root/attacks
+
+  victim:
+    image: vulnerables/web-dvwa
+    container_name: victim-dvwa
+    hostname: victim
+    networks:
+      - clash_net
+    cap_add:
+      - NET_ADMIN
+
+  monitor:
+    image: nicolaka/netshoot
+    container_name: monitor-sidecar
+    # "Sidecar" mode: This container attaches to the victim's network stack.
+    # It sees exactly what the victim sees (localhost, eth0).
+    network_mode: service:victim
+    # networks:  <-- REMOVED because network_mode is used
+    #   - clash_net
+    volumes:
+      - ../reports/pcap:/pcap
+    command: [ "/bin/sh", "-c", "while true; do sleep 30; done;" ]
