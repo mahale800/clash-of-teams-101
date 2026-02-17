@@ -49,21 +49,23 @@ The lab consists of three isolated containers running on an internal bridge netw
 
 ```mermaid
 graph TD
-    subgraph "Internal Network (clash_net)"
-        Attacker[Kali Linux<br/>(Red Team)]
-        Victim[DVWA Web App<br/>(Target)]
-        Monitor[Netshoot<br/>(Blue Team)]
+    subgraph Internal_Network_clash_net
+        Attacker[Kali Linux - Red Team]
+        Victim[DVWA Web App - Target]
+        Monitor[Netshoot - Blue Team]
     end
 
-    Attacker -- "1. Scans & Exploits" --> Victim
-    Monitor -. "2. Captures Traffic (Sidecar)" .-> Victim
-    Monitor -- "3. Analyzes Logs" --> Report[Detection Report]
-    Victim -- "4. Blocks IP" --> Firewall[iptables DROP]
-
-    style Attacker fill:#ffcccc,stroke:#ff0000,stroke-width:2px
-    style Victim fill:#ffffcc,stroke:#aaaa00,stroke-width:2px
-    style Monitor fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    Attacker -->|1. Scans & Exploits| Victim
+    Monitor -.->|2. Captures Traffic| Victim
+    Monitor -->|3. Analyzes Logs| Report[Detection Report]
+    Victim -->|4. Blocks IP| Firewall[iptables DROP]
 ```
+
+---
+
+## 📈 GitHub Stats
+
+![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=mahale800&show_icons=true&theme=radical)
 
 ---
 
