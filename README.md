@@ -2,8 +2,9 @@
 
 > **A "Lab in a Box" Cybersecurity Simulation** showing the complete lifecycle of a cyber attack: from automated reconnaissance and exploitation to real-time detection and automated incident response.
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/yashmahale/clash-of-teams-101?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Docker](https://img.shields.io/badge/Container-Docker-blue)
+![Automation](https://img.shields.io/badge/Automation-Bash-green)
 
 ---
 
