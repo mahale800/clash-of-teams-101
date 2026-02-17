@@ -1,28 +1,45 @@
 # Clash of Teams 101 – Breach & Defend
 
-> **A "Lab in a Box" Cybersecurity Simulation** showing the complete lifecycle of a cyber attack: from automated reconnaissance and exploitation to real-time detection and automated incident response.
-
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Docker](https://img.shields.io/badge/Container-Docker-blue)
 ![Automation](https://img.shields.io/badge/Automation-Bash-green)
 
----
+A fully automated cybersecurity lab demonstrating the complete attack lifecycle:
+Reconnaissance → Detection → Remediation.
 
-## 📖 Project Overview
+This project simulates a real-world SOC workflow using containerized environments and automated scripts.
 
-**Clash of Teams 101** is a fully containerized cybersecurity range designed to demonstrate Red Team (Offense) and Blue Team (Defense) operations in a safe, controlled environment.
+## Key Highlights
+- Automated Red Team attack using Nmap and Metasploit
+- Network traffic capture and analysis
+- Automated incident response with firewall blocking
+- One-command full attack–defense pipeline
+- Fully containerized using Docker
 
-This project simulates a real-world scenario where:
-1.  **Red Team**: Automatically scans and exploits a vulnerable web server.
-2.  **Blue Team**: Captures network traffic and analyzes it for malicious patterns.
-3.  **Purple Team (Response)**: Automatically triggers a firewall rule to block the attacker in real-time.
+## Skills Demonstrated
+- Penetration testing basics
+- Network traffic analysis
+- Bash automation
+- Docker-based lab environments
+- Incident response workflows
 
-### Key Features
--   ✅ **Dockerized Environment**: Zero-dependency setup (just Docker & Compose).
--   ✅ **Automated Attack Pipeline**: Bash scripts driving Nmap and Metasploit.
--   ✅ **Sidecar Monitoring**: Network traffic capture without modifying the victim container.
--   ✅ **Automated Remediation**: Scripted response that patches the victim and blocks the threat.
--   ✅ **Detailed Reporting**: Generates PCAP files and log analysis reports.
+## Quick Demo (One Command)
+
+Run the entire attack–detect–defend pipeline:
+
+```bash
+bash automation/run_full_pipeline.sh
+```
+
+This will:
+1. Start the lab environment
+2. Launch automated attacks
+3. Capture network traffic
+4. Analyze suspicious activity
+5. Block the attacker automatically
+
+## Why This Project Matters
+This project demonstrates the full cybersecurity incident lifecycle, similar to real SOC operations. It shows how automated detection and response can stop an attacker in real time.
 
 ---
 
@@ -58,28 +75,12 @@ graph TD
 -   Linux/Mac/WSL2 environment (for running bash scripts).
 
 ### 1. Setup
-Clone the repository and start the environment:
+Clone the repository and start the environment (if not running via the quick demo script):
 
 ```bash
 cd infrastructure
 docker compose up -d
 ```
-
-### 2. Run the Full Simulation
-We have provided a master script that runs the entire pipeline (Attack -> Detect -> Defend) in one go:
-
-```bash
-# From the project root
-bash automation/run_full_pipeline.sh
-```
-
-**What happens?**
-1.  **Environment Check**: Verifies containers are running.
-2.  **Traffic Capture**: Starts a background packet capture on the `monitor` container.
-3.  **Attack**: Launches Nmap and Metasploit against the `victim`.
-4.  **Analysis**: Processes the PCAP file and generates a traffic summary.
-5.  **Remediation**: Automatically installs `iptables` on the victim and blocks the attacker.
-6.  **Verification**: Confirms the attacker is blocked via a ping test.
 
 ---
 
@@ -141,7 +142,5 @@ Mon Feb 16 19:40:00 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim
 ---
 
 ## 👤 Author
-
-**Yash Mahale**
--   Year: 2026
--   License: MIT
+Yash Mahale  
+Cybersecurity Student
