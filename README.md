@@ -61,11 +61,7 @@ graph TD
     Victim -->|4. Blocks IP| Firewall[iptables DROP]
 ```
 
----
 
-## 📈 GitHub Stats
-
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=mahale800&show_icons=true&theme=radical)
 
 ---
 
