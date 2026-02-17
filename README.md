@@ -121,25 +121,7 @@ clash-of-teams-101/
 Mon Feb 16 19:40:00 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim-dvwa
 ```
 
----
 
-## 📸 Screenshots
-
-*(Placeholders for your project submission)*
-
-1.  **Metasploit Console Output**
-    
-    ![Metasploit](img/metasploit_screenshot.png)
-
-2.  **Traffic Analysis Report**
-    
-    ![Analysis](img/analysis_screenshot.png)
-
-3.  **Blocked Ping Verification**
-    
-    ![Blocked](img/blocked_screenshot.png)
-
----
 
 ## 👤 Author
 Yash Mahale  
