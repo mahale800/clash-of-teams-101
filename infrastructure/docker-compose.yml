@@ -11,8 +11,6 @@ services:
     stdin_open: true
     networks:
       - clash_net
-    volumes:
-      - ../attacks:/root/attacks
 
   victim:
     image: vulnerables/web-dvwa
@@ -34,3 +32,4 @@ services:
     volumes:
       - ../reports/pcap:/pcap
     command: [ "/bin/sh", "-c", "while true; do sleep 30; done;" ]
+
