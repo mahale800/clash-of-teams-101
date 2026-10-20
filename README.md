@@ -1,126 +1,70 @@
-# Clash of Teams 101 – Breach & Defend
+# Clash of Teams 101 — Breach and Defend Lab
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Docker](https://img.shields.io/badge/Container-Docker-blue)
-![Automation](https://img.shields.io/badge/Automation-Bash-green)
+Clash of Teams 101 is a containerized, educational cybersecurity lab for practicing a small red-team and blue-team workflow: reconnaissance, traffic capture, analysis, and firewall remediation.
 
-A fully automated cybersecurity lab demonstrating the complete attack lifecycle:
-Reconnaissance → Detection → Remediation.
+## Current status
 
-This project simulates a real-world SOC workflow using containerized environments and automated scripts.
+This is an experimental local lab, not a production security system. Run it only against the containers defined in this repository or another environment you own and are explicitly authorized to test. The generated reports are local artifacts and may describe historical runs; they are not proof that every pipeline stage succeeds on every host.
 
-## Key Highlights
-- Automated Red Team attack using Nmap and Metasploit
-- Network traffic capture and analysis
-- Automated incident response with firewall blocking
-- One-command full attack–defense pipeline
-- Fully containerized using Docker
+## What is included
 
-## Skills Demonstrated
-- Penetration testing basics
-- Network traffic analysis
-- Bash automation
-- Docker-based lab environments
-- Incident response workflows
+- Nmap reconnaissance from a Kali-based attacker container.
+- Optional Metasploit HTTP scanner automation.
+- Tcpdump capture and traffic analysis from a monitor container.
+- An iptables remediation script that resolves the attacker container's current IP before adding a drop rule.
+- Docker Compose networking that keeps the lab services on an isolated bridge network.
 
-## Quick Demo (One Command)
+## Requirements
 
-Run the entire attack–detect–defend pipeline:
+- Docker Engine with Docker Compose.
+- Linux, macOS, or WSL2 for the Bash scripts.
+- At least 4 GB of available memory for the container images.
+- Network access to pull the referenced images and install tools in the Kali container.
+
+## Run the lab
+
+Review the scripts before running them, then execute the pipeline from the repository root:
 
 ```bash
 bash automation/run_full_pipeline.sh
 ```
 
-This will:
-1. Start the lab environment
-2. Launch automated attacks
-3. Capture network traffic
-4. Analyze suspicious activity
-5. Block the attacker automatically
+For manual setup and individual checks, see [docs/setup.md](docs/setup.md). The pipeline installs Nmap and Metasploit inside the attacker container when they are missing, captures traffic, analyzes the capture, and attempts remediation. A failed tool installation or analysis step should be treated as a failed run rather than silently interpreted as a successful defense.
 
-## Why This Project Matters
-This project demonstrates the full cybersecurity incident lifecycle, similar to real SOC operations. It shows how automated detection and response can stop an attacker in real time.
-
----
-
-## 🏗️ Architecture
-
-The lab consists of three isolated containers running on an internal bridge network (`clash_net`).
+## Architecture
 
 ```mermaid
 graph TD
-    subgraph Internal_Network_clash_net
-        Attacker[Kali Linux - Red Team]
-        Victim[DVWA Web App - Target]
-        Monitor[Netshoot - Blue Team]
-    end
-
-    Attacker -->|1. Scans & Exploits| Victim
-    Monitor -.->|2. Captures Traffic| Victim
-    Monitor -->|3. Analyzes Logs| Report[Detection Report]
-    Victim -->|4. Blocks IP| Firewall[iptables DROP]
+    Attacker[attacker-kali] -->|Nmap / Metasploit| Victim[victim-dvwa]
+    Victim -->|Traffic| Monitor[monitor-sidecar]
+    Monitor --> Reports[Local reports]
+    Attacker -.->|Resolved container IP| Remediation[iptables drop rule]
+    Remediation --> Victim
 ```
 
+The scripts use Docker service names such as `victim` and `attacker-kali` instead of assuming fixed container IP addresses. Docker may assign different addresses each time the lab is recreated.
 
+## Repository layout
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
--   **Docker** and **Docker Compose** installed.
--   4GB+ RAM recommended.
--   Linux/Mac/WSL2 environment (for running bash scripts).
-
-### 1. Setup
-Clone the repository and start the environment (if not running via the quick demo script):
-
-```bash
-cd infrastructure
-docker compose up -d
-```
-
----
-
-## 📂 Project Structure
-
-```
-clash-of-teams-101/
-├── README.md              # Project Documentation
-├── LICENSE                # MIT License
-├── .gitignore             # Git Configuration
-├── automation/
-│   ├── attack_pipeline/   # Red Team Scripts (Nmap, Metasploit)
-│   ├── remediation/       # Blue Team Response (iptables blocking)
-│   └── run_full_pipeline.sh # Master Automation Script
-├── defender/
-│   └── log_analysis/      # Blue Team Detection (tcpdump, tshark)
-├── docs/
-│   ├── final_report.md    # Comprehensive Academic Report
-│   └── setup.md           # Detailed setup guide
-├── infrastructure/
-│   └── docker-compose.yml # Lab Environment Definition
-└── reports/               # Generated Artifacts (Logs, PCAPs)
-```
-
----
-
-## 📊 Sample Output
-
-### Detection Report (`reports/defense_logs/traffic_summary.txt`)
 ```text
-=== Top Talkers ===
-1000 packets: 172.18.0.3 -> 172.18.0.2 (Port Scanning)
-...
+automation/       Attack, analysis, remediation, and orchestration scripts
+defender/         Traffic capture and analysis helpers
+docs/             Setup and project notes
+infrastructure/   Docker Compose definition
+reports/          Local generated logs and packet captures
 ```
 
-### Blocking Log (`reports/remediation_logs/block_log.txt`)
-```text
-Mon Feb 16 19:40:00 UTC 2026 | ACTION: Blocked IP 172.18.0.3 | CONTAINER: victim-dvwa
-```
+## Limitations
 
+- The lab has no automated test suite; validate each run from the generated logs and container state.
+- Tool availability depends on the base images and package repositories at run time.
+- The Docker images and included vulnerable application are intentionally unsafe outside the isolated lab network.
 
+## License
 
-## 👤 Author
-Yash Mahale  
-Cybersecurity Student
+This project is licensed under the [MIT License](LICENSE).
+
+## Author
+
+Yash Mahale
+
