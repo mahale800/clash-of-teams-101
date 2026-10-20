@@ -2,7 +2,7 @@
 
 # Configuration
 VICTIM_CONTAINER="victim-dvwa"
-ATTACKER_IP="attacker-kali"
+ATTACKER_CONTAINER="attacker-kali"
 LOG_DIR="../../reports/remediation_logs"
 LOG_FILE="$LOG_DIR/block_log.txt"
 
@@ -11,6 +11,16 @@ cd "$(dirname "$0")"
 
 # Ensure log directory exists
 mkdir -p "$LOG_DIR"
+
+if ! ATTACKER_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$ATTACKER_CONTAINER" 2>/dev/null)"; then
+    echo "Unable to inspect $ATTACKER_CONTAINER. Is the lab running?" >&2
+    exit 1
+fi
+
+if [[ -z "$ATTACKER_IP" ]]; then
+    echo "No IP address found for $ATTACKER_CONTAINER." >&2
+    exit 1
+fi
 
 echo "========================================"
 echo "Initiating Remediation at $(date)"
@@ -44,3 +54,4 @@ docker exec "$VICTIM_CONTAINER" iptables -L INPUT -n
 
 echo "========================================"
 echo "Remediation completed."
+
